@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PackStore Blog - Ofertas y Análisis</title>
+    <title>Productos Virales - Ofertas y Packs</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -12,210 +12,174 @@
             theme: {
                 extend: {
                     animation: {
-                        'slide-in-right': 'slideInRight 0.5s ease-out forwards',
                         'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
-                        'spin-slow': 'spin 20s linear infinite',
-                        'spin-reverse': 'spin-reverse 25s linear infinite',
-                        'bounce-soft': 'bounceSoft 2s ease-in-out infinite',
                     },
                     keyframes: {
-                        slideInRight: {
-                            '0%': { transform: 'translateX(100%)', opacity: '0' },
-                            '100%': { transform: 'translateX(0)', opacity: '1' },
-                        },
                         fadeInUp: {
                             '0%': { transform: 'translateY(20px)', opacity: '0' },
                             '100%': { transform: 'translateY(0)', opacity: '1' },
                         },
-                        spin: { from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(360deg)' } },
-                        'spin-reverse': { from: { transform: 'rotate(360deg)' }, to: { transform: 'rotate(0deg)' } },
-                        bounceSoft: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Scrollbar */
+        /* Scrollbar y Progreso */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #fdba74; border-radius: 10px; }
         
-        /* Animaciones de entrada */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f97316, #ef4444);
+            z-index: 9999;
+            transition: width 0.1s ease-out;
+        }
+
         .animate-item { opacity: 0; animation: fadeInUp 0.6s ease-out forwards; }
-        
-        /* Decoraciones Florales / Geométricas */
-        .deco-circle {
-            position: absolute;
-            border-radius: 50%;
-            border: 2px solid rgba(249, 115, 22, 0.2);
-            pointer-events: none;
-        }
-        .deco-flower {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(circle, rgba(249, 115, 22, 0.1) 2px, transparent 2.5px);
-            background-size: 20px 20px;
-            opacity: 0.6;
-            pointer-events: none;
-        }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
+<body class="bg-gray-50 text-gray-800 font-sans">
 
-    <!-- ==================== NOTIFICACIÓN FLOTANTE ==================== -->
-    <div id="toast-notification" class="fixed top-20 right-4 z-50 w-80 bg-white border-l-4 border-orange-500 rounded-lg shadow-2xl p-4 transform translate-x-full transition-transform duration-500 ease-out cursor-pointer hover:scale-105" onclick="this.classList.add('translate-x-full')">
-        <div class="flex items-start">
-            <div class="flex-shrink-0 bg-orange-100 p-2 rounded-full animate-pulse">
-                <i class="fas fa-info-circle text-orange-500 text-xl"></i>
-            </div>
-            <div class="ml-3 w-full">
-                <p class="text-sm font-bold text-gray-900">¡Importante!</p>
-                <p class="text-xs text-gray-600 mt-1">Los precios pueden variar desde la fecha de publicación. Verifica el precio final en Amazon.</p>
-            </div>
-        </div>
-    </div>
+    <!-- BARRA DE PROGRESO -->
+    <div id="progress-bar" style="width: 0%"></div>
 
-    <!-- ==================== NAVBAR ==================== -->
-    <nav class="bg-white shadow-lg fixed w-full z-40 top-0 h-16">
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-md fixed w-full z-40 top-0 h-16">
         <div class="max-w-7xl mx-auto px-4 h-full flex justify-between items-center">
             <div class="flex items-center">
-                <button id="menu-btn" class="lg:hidden text-gray-600 mr-4 focus:outline-none transform hover:rotate-90 transition-transform duration-300">
-                    <i class="fas fa-bars text-xl"></i>
+                <button id="menu-btn" class="lg:hidden text-gray-600 mr-4 focus:outline-none text-2xl">
+                    <i class="fas fa-bars"></i>
                 </button>
-                <a href="#" onclick="navigateTo('home')" class="text-2xl font-extrabold tracking-tight group">
-                    <span class="text-orange-500 group-hover:text-orange-600 transition-colors">Pack</span>
-                    <span class="text-gray-700 group-hover:text-gray-900 transition-colors">Store</span>
+                <a href="#" onclick="goHome()" class="text-2xl font-extrabold tracking-tight text-gray-800">
+                    Productos <span class="text-orange-500">Virales</span>
                 </a>
             </div>
             
-            <div class="hidden md:flex items-center space-x-8">
-                <button onclick="navigateTo('home')" class="relative text-gray-600 hover:text-orange-500 font-medium group">
-                    Blog <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
-                </button>
-                <button onclick="navigateTo('store')" class="relative text-gray-600 hover:text-orange-500 font-medium group">
-                    Tienda <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
-                </button>
-            </div>
-
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center">
                 <div class="hidden sm:block relative">
-                    <input type="text" id="search-main" placeholder="Buscar..." 
+                    <input type="text" id="search-main" placeholder="Buscar ofertas..." 
                            class="border border-gray-200 rounded-full px-4 py-1.5 pl-8 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 w-48 transition-all">
                     <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs"></i>
                 </div>
-                <a href="admin.html" class="text-gray-400 hover:text-orange-500 transition-colors" title="Admin">
-                    <i class="fas fa-cog text-lg hover:rotate-90 transition-transform duration-500"></i>
-                </a>
             </div>
         </div>
     </nav>
 
-    <!-- ==================== OVERLAY ==================== -->
-    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden transition-opacity" onclick="toggleSidebar()"></div>
+    <!-- OVERLAY MOVIL -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden" onclick="toggleSidebar()"></div>
 
-    <!-- ==================== CONTENEDOR PRINCIPAL ==================== -->
+    <!-- CONTENEDOR PRINCIPAL -->
     <div class="flex pt-16 min-h-screen">
         
-        <!-- ==================== SIDEBAR ==================== -->
+        <!-- SIDEBAR -->
         <aside id="sidebar" 
                class="fixed left-0 top-16 h-[calc(100vh-4rem)] w-72 bg-white shadow-xl z-30 
                       overflow-y-auto transition-transform duration-300 ease-in-out
                       transform -translate-x-full lg:translate-x-0 border-r border-gray-100">
             <div class="p-6">
-                <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-6">
-                    <i class="fas fa-tags mr-2"></i> Categorías
-                </h3>
-                <ul id="category-list" class="space-y-2">
-                    <li class="text-gray-400 text-sm">Cargando...</li>
-                </ul>
+                
+                <!-- NAVEGACIÓN -->
+                <div class="mb-8">
+                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Navegación</h3>
+                    <div class="space-y-2">
+                        <button onclick="navigateTo('home'); closeMobileMenu();" class="w-full flex items-center px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition font-medium group">
+                            <i class="fas fa-newspaper mr-3 text-gray-400 group-hover:text-orange-500"></i> Blog de Packs
+                        </button>
+                        <button onclick="navigateTo('store'); closeMobileMenu();" class="w-full flex items-center px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 rounded-lg transition font-medium group">
+                            <i class="fas fa-store mr-3 text-gray-400 group-hover:text-orange-500"></i> Tienda
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CATEGORÍAS -->
+                <div>
+                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Categorías</h3>
+                    <ul id="category-list" class="space-y-2">
+                        <li class="text-gray-400 text-sm">Cargando...</li>
+                    </ul>
+                </div>
+
             </div>
         </aside>
 
-        <!-- ==================== CONTENIDO PRINCIPAL ==================== -->
+        <!-- CONTENIDO -->
         <main class="flex-1 lg:ml-72 p-4 sm:p-6 lg:p-8 w-full">
             
-            <!-- VISTA: HOME (BLOG) -->
+            <!-- VISTA: HOME -->
             <section id="view-home" class="max-w-4xl mx-auto">
                 <div class="mb-10 animate-fade-in-up">
-                    <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">Últimos Packs</h1>
-                    <p class="text-gray-500 text-lg">Selecciones detalladas con el mejor valor.</p>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">Últimos Packs</h1>
+                    <p class="text-gray-500">Selecciones detalladas con el mejor valor.</p>
                 </div>
                 <div id="packs-container" class="space-y-8"></div>
             </section>
 
-            <!-- VISTA: TIENDA (GRID RESPONSIVO ARREGLADO) -->
+            <!-- VISTA: TIENDA -->
             <section id="view-store" class="hidden max-w-7xl mx-auto">
                 <div class="mb-10 animate-fade-in-up">
-                    <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">Tienda de Ofertas</h1>
-                    <p class="text-gray-500 text-lg">Enlaces rápidos a productos destacados.</p>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">Tienda de Ofertas</h1>
+                    <p class="text-gray-500">Enlaces rápidos a productos destacados.</p>
                 </div>
-                <!-- Grid mejorado: 1 col en movil, 2 en sm, 3 en md, 4 en lg -->
-                <div id="store-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                </div>
+                <div id="store-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
             </section>
 
-            <!-- VISTA: DETALLE (NUEVA ESTRUCTURA) -->
+            <!-- VISTA: DETALLE -->
             <section id="view-detail" class="hidden max-w-4xl mx-auto">
-                <button onclick="history.back()" class="mb-6 text-orange-500 hover:text-orange-600 font-medium flex items-center group transition-all">
-                    <i class="fas fa-arrow-left mr-2 group-hover:-translate-x-1"></i> Volver al Blog
+                <button onclick="goBack()" class="mb-6 text-orange-500 hover:text-orange-600 font-medium flex items-center group">
+                    <i class="fas fa-arrow-left mr-2"></i> Volver
                 </button>
                 
                 <article class="bg-white rounded-2xl shadow-xl overflow-hidden animate-fade-in-up">
                     
-                    <!-- Cabecera con Imagen y Decoración -->
-                    <div class="relative group overflow-hidden h-64 sm:h-96 bg-gray-100">
-                        <!-- Decoraciones Animadas (Flores/Círculos) -->
-                        <div class="absolute inset-0 flex items-center justify-center overflow-hidden z-0">
-                            <div class="deco-flower animate-spin-slow"></div>
-                            <div class="deco-circle w-48 h-48 animate-spin-reverse border-orange-200 opacity-50"></div>
-                            <div class="deco-circle w-64 h-64 animate-spin-slow border-dashed border-orange-300 opacity-40"></div>
-                            <div class="deco-circle w-80 h-80 animate-spin-reverse border-orange-100 opacity-30"></div>
-                        </div>
-                        
-                        <!-- Imagen Principal -->
-                        <img id="detail-img" src="" alt="" class="relative w-full h-full object-contain z-10 transition-transform duration-500 group-hover:scale-110 drop-shadow-lg">
-                        
-                        <!-- Badge de Categoría -->
-                        <div class="absolute top-4 left-4 z-20 bg-orange-500 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg uppercase tracking-wider animate-bounce-soft">
+                    <!-- Imagen -->
+                    <div class="relative group overflow-hidden h-64 sm:h-96 bg-white">
+                        <img id="detail-img" src="" alt="" class="w-full h-full object-contain z-10 transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute top-4 left-4 z-20 bg-orange-500 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg uppercase">
                             <span id="detail-cat"></span>
                         </div>
                     </div>
 
                     <div class="p-6 sm:p-10">
                         <!-- Título y Fecha -->
-                        <div class="flex flex-col sm:flex-row justify-between items-start border-b border-gray-100 pb-6 mb-6">
-                            <div>
-                                <h1 id="detail-title" class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight"></h1>
-                                <div class="flex items-center text-sm text-gray-400 mt-2">
-                                    <i class="fas fa-calendar-alt mr-2"></i>
-                                    <span>Publicado: <span id="detail-date" class="font-semibold text-gray-500"></span></span>
+                        <div class="border-b border-gray-100 pb-6 mb-6">
+                            <h1 id="detail-title" class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight"></h1>
+                            <div class="flex items-center text-sm text-gray-400 mt-2">
+                                <i class="fas fa-calendar-alt mr-2"></i>
+                                <span>Publicado: <span id="detail-date" class="font-semibold text-gray-500"></span></span>
+                            </div>
+                        </div>
+
+                        <!-- AVISO INFORMATIVO (LA BOLA AZUL ARREGLADA) -->
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-8 animate-fade-in-up shadow-sm">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-200 p-2 rounded-full">
+                                    <i class="fas fa-info-circle text-blue-600 text-lg"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-base text-blue-800 font-bold">Información Importante</p>
+                                    <p class="text-sm text-blue-600 mt-1">
+                                        Estos productos se compran <strong>por separado</strong>. El pack es solo una recomendación para facilitar tu búsqueda. 
+                                        Haz clic en el botón <strong>"Comprar"</strong> de cada producto para ir a la oferta en Amazon.
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- PRODUCTOS PRIMERO (CAMBIO SOLICITADO) -->
+                        <!-- PRODUCTOS -->
                         <div class="mb-8">
                             <h2 class="text-2xl font-bold mb-6 flex items-center text-gray-800">
-                                <i class="fas fa-gift mr-3 text-orange-500"></i> Productos en este Pack
+                                <i class="fas fa-gift mr-3 text-orange-500"></i> Productos incluidos
                             </h2>
-                            
-                            <!-- BOTÓN COMPRAR PACK COMPLETO -->
-                            <div class="mb-6 bg-green-50 p-4 rounded-xl border border-green-200 text-center">
-                                <button id="buy-all-btn" onclick="buyWholePack()" class="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-lg">
-                                    <i class="fas fa-cart-plus mr-2"></i> Comprar Pack Completo en Amazon
-                                </button>
-                                <p class="text-xs text-gray-500 mt-2">Intentaremos añadir todos los productos a tu carrito de Amazon.</p>
-                            </div>
-
                             <div id="detail-items" class="space-y-4"></div>
                         </div>
 
-                        <!-- DESCRIPCIÓN DESPUÉS -->
+                        <!-- Descripción -->
                         <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-orange-300">
                             <h3 class="font-bold text-gray-700 mb-2 flex items-center"><i class="fas fa-info-circle mr-2 text-orange-400"></i> Sobre este Pack</h3>
                             <div id="detail-desc" class="text-gray-600 leading-relaxed"></div>
@@ -233,12 +197,31 @@
         </main>
     </div>
 
-    <!-- ==================== LÓGICA JAVASCRIPT ==================== -->
+    <!-- JAVASCRIPT -->
     <script>
         let data = { categories: [], packs: [], store: [] };
         let currentView = 'home';
         let currentCategory = 'Todos';
-        let currentPackData = null; // Para guardar el pack actual y usarlo en "buyWholePack"
+
+        // --- Historial y Navegación ---
+        window.addEventListener('load', () => {
+            history.replaceState({ view: 'home' }, '', '#home');
+        });
+
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.view) {
+                updateView(event.state.view, null, false);
+            } else {
+                updateView('home', null, false);
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('progress-bar').style.width = scrollPercent + '%';
+        });
 
         // --- Carga de Datos ---
         async function loadData() {
@@ -251,46 +234,53 @@
             } catch (error) {
                 console.error(error);
                 document.getElementById('packs-container').innerHTML = `
-                    <div class="text-center py-10 bg-red-50 rounded-lg text-red-600">
+                    <div class="text-center py-10 bg-red-50 rounded-lg text-red-600 p-4">
                         <i class="fas fa-exclamation-triangle text-2xl mb-2"></i>
-                        <p>Error al cargar datos.</p>
+                        <p>Error al cargar <b>data.json</b>.</p>
                     </div>`;
             }
         }
 
-        // --- Navegación ---
+        function goHome() { navigateTo('home'); }
+
+        function goBack() {
+            if (history.state && history.state.view !== 'detail') {
+                history.back();
+            } else {
+                navigateTo('home');
+            }
+        }
+
         function navigateTo(view, id = null) {
+            updateView(view, id, true);
+        }
+
+        function updateView(view, id = null, pushState = true) {
             document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
             currentView = view;
             window.scrollTo(0, 0);
+            document.getElementById('progress-bar').style.width = '0%';
 
             if (view === 'home') {
                 document.getElementById('view-home').classList.remove('hidden');
                 renderPacks();
+                if(pushState) history.pushState({ view: 'home' }, '', '#home');
             } else if (view === 'store') {
                 document.getElementById('view-store').classList.remove('hidden');
                 renderStore();
+                if(pushState) history.pushState({ view: 'store' }, '', '#store');
             } else if (view === 'detail' && id) {
                 document.getElementById('view-detail').classList.remove('hidden');
                 renderDetail(id);
-                showToastNotification();
+                if(pushState) history.pushState({ view: 'detail', id: id }, '', '#pack');
             }
         }
 
-        // --- Utilidades Amazon ---
-        // Función para extraer ASIN de una URL de Amazon
-        function getAsin(url) {
-            if (!url) return null;
-            // Patrones comunes: /dp/ASIN, /gp/product/ASIN, /exec/obidos/ASIN
-            const regex = /(?:\/dp\/|\/gp\/product\/|\/exec\/obidos\/ASIN\/|\/o\/ASIN\/|\/ASIN\/)([A-Z0-9]{10})/i;
-            const match = url.match(regex);
-            return match ? match[1] : null;
-        }
-
-        function showToastNotification() {
-            const toast = document.getElementById('toast-notification');
-            toast.classList.remove('translate-x-full');
-            setTimeout(() => { toast.classList.add('translate-x-full'); }, 5000);
+        function closeMobileMenu() {
+            if (window.innerWidth < 1024) {
+                document.getElementById('sidebar').classList.add('-translate-x-full');
+                document.getElementById('overlay').classList.add('hidden');
+            }
         }
 
         // --- Renderizado ---
@@ -298,15 +288,15 @@
             const list = document.getElementById('category-list');
             list.innerHTML = `
                 <li>
-                    <button onclick="filter('Todos')" class="w-full text-left px-4 py-3 rounded-lg transition-all flex items-center ${currentCategory === 'Todos' ? 'bg-orange-500 text-white shadow-lg' : 'hover:bg-gray-100 text-gray-600'}">
-                        <i class="fas fa-th-large mr-3"></i> Todos
+                    <button onclick="filter('Todos')" class="w-full text-left px-4 py-2 rounded-lg transition-all flex items-center ${currentCategory === 'Todos' ? 'bg-orange-100 text-orange-600 font-bold' : 'hover:bg-gray-100 text-gray-600'}">
+                        <i class="fas fa-th-large mr-3 w-4"></i> Todos
                     </button>
                 </li>`;
             data.categories.forEach(cat => {
                 list.innerHTML += `
                     <li>
-                        <button onclick="filter('${cat}')" class="w-full text-left px-4 py-3 rounded-lg transition-all flex items-center ${currentCategory === cat ? 'bg-orange-500 text-white shadow-lg' : 'hover:bg-gray-100 text-gray-600'}">
-                            <i class="fas fa-tag mr-3"></i> ${cat}
+                        <button onclick="filter('${cat}')" class="w-full text-left px-4 py-2 rounded-lg transition-all flex items-center ${currentCategory === cat ? 'bg-orange-100 text-orange-600 font-bold' : 'hover:bg-gray-100 text-gray-600'}">
+                            <i class="fas fa-tag mr-3 w-4"></i> ${cat}
                         </button>
                     </li>`;
             });
@@ -316,7 +306,7 @@
             currentCategory = cat;
             renderCategories();
             renderView();
-            if (window.innerWidth < 1024) toggleSidebar();
+            closeMobileMenu();
         }
 
         function renderView() {
@@ -324,7 +314,7 @@
             else if (currentView === 'store') renderStore();
         }
 
-        // --- Packs Blog ---
+        // --- Vistas ---
         function renderPacks() {
             const container = document.getElementById('packs-container');
             let items = data.packs;
@@ -334,7 +324,7 @@
             container.innerHTML = items.map((p, i) => `
                 <article style="animation-delay: ${i*100}ms" class="bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer group animate-item hover:shadow-2xl transition-all border border-transparent hover:border-orange-200" onclick="navigateTo('detail', '${p.id}')">
                     <div class="sm:flex">
-                        <div class="sm:w-1/3 overflow-hidden relative">
+                        <div class="sm:w-1/3 overflow-hidden relative bg-gray-50">
                             <img src="${p.image}" class="w-full h-48 sm:h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://via.placeholder.com/400'">
                         </div>
                         <div class="p-6 flex flex-col justify-center flex-grow">
@@ -351,7 +341,6 @@
             `).join('');
         }
 
-        // --- Tienda Grid ---
         function renderStore() {
             const container = document.getElementById('store-container');
             let items = data.store;
@@ -368,8 +357,8 @@
                         <h3 class="font-bold text-gray-800 mb-2 flex-grow">${p.title}</h3>
                         <div class="flex justify-between items-center mt-auto">
                             <span class="text-xl font-extrabold text-gray-900">${p.price ? '$'+p.price : 'Ver Precio'}</span>
-                            <a href="${p.link}" target="_blank" onclick="event.stopPropagation(); showToastNotification();" 
-                               class="bg-orange-500 text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-orange-600 shadow-sm hover:shadow-md transition-all transform hover:scale-105">
+                            <a href="${p.link}" target="_blank" rel="noopener noreferrer" 
+                               class="bg-orange-500 text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-orange-600 shadow-sm transition-all transform hover:scale-105">
                                 Comprar
                             </a>
                         </div>
@@ -378,11 +367,9 @@
             `).join('');
         }
 
-        // --- Detalle del Pack (Con lógica de compra) ---
         function renderDetail(id) {
             const pack = data.packs.find(p => p.id === id);
             if (!pack) return;
-            currentPackData = pack; // Guardamos referencia
 
             document.title = pack.title;
             document.getElementById('detail-img').src = pack.image;
@@ -400,8 +387,8 @@
                 if (hasPrice) total += priceNum;
 
                 const priceHtml = hasPrice 
-                    ? `<span class="text-2xl font-extrabold text-gray-800">$${priceNum.toFixed(2)}</span>`
-                    : `<span class="text-orange-500 font-bold animate-pulse">Ver Precio en Amazon</span>`;
+                    ? `<span class="text-xl font-extrabold text-gray-800">$${priceNum.toFixed(2)}</span>`
+                    : `<span class="text-orange-500 font-bold">Ver Precio</span>`;
 
                 return `
                 <div style="animation-delay: ${i*100}ms" class="flex flex-col sm:flex-row gap-4 bg-white p-4 rounded-xl border border-gray-200 hover:border-orange-400 transition-all animate-item shadow-sm hover:shadow-md group">
@@ -409,13 +396,13 @@
                         <img src="${item.image}" alt="${item.name}" class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform">
                     </div>
                     <div class="flex-grow flex flex-col justify-center">
-                        <h4 class="text-lg font-bold text-gray-800">${item.name}</h4>
+                        <h4 class="font-bold text-gray-800">${item.name}</h4>
                         <p class="text-gray-400 text-sm mb-2">${item.description || ''}</p>
                         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mt-2">
                             <div>${priceHtml}</div>
                             <a href="${item.link}" target="_blank" rel="noopener" 
-                               class="bg-white border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-4 py-1 rounded-full text-sm font-bold transition-all text-center w-full sm:w-auto">
-                                Comprar Separado
+                               class="bg-orange-500 text-white hover:bg-orange-600 px-4 py-2 rounded-lg text-sm font-bold transition-all text-center w-full sm:w-auto shadow-sm">
+                                Comprar en Amazon
                             </a>
                         </div>
                     </div>
@@ -425,45 +412,6 @@
             document.getElementById('detail-total').innerText = `$${total.toFixed(2)}`;
         }
 
-        // Función para comprar todo el pack
-        function buyWholePack() {
-            if (!currentPackData) return;
-
-            // 1. Construir URL de carrito de Amazon
-            // Nota: Usamos el dominio genérico .com, Amazon redirige al local del usuario.
-            // Estructura: https://www.amazon.com/gp/aws/cart/add.html?AssociateTag=YOUR_TAG&ASIN.1=XXXXX&Quantity.1=1...
-            // NOTA IMPORTANTE: Esto solo funciona si los enlaces en el JSON son de Amazon y tienen ASINs válidos.
-            
-            let baseUrl = "https://www.amazon.com/gp/aws/cart/add.html?";
-            let params = [];
-            let count = 1;
-
-            currentPackData.items.forEach(item => {
-                const asin = getAsin(item.link);
-                if (asin) {
-                    params.push(`ASIN.${count}=${asin}`);
-                    params.push(`Quantity.${count}=1`);
-                    count++;
-                }
-            });
-
-            if (params.length > 0) {
-                // Si tienes un ID de afiliado, agrégalo aquí. Si no, se omite (pero ganas menos comisión).
-                // params.push("AssociateTag=TuIDDeAfiliado");
-                
-                const fullUrl = baseUrl + params.join("&");
-                window.open(fullUrl, '_blank');
-                
-                // Feedback visual
-                const btn = document.getElementById('buy-all-btn');
-                btn.innerHTML = '<i class="fas fa-check mr-2"></i> Redirigiendo a Amazon...';
-                setTimeout(() => { btn.innerHTML = '<i class="fas fa-cart-plus mr-2"></i> Comprar Pack Completo en Amazon'; }, 2000);
-            } else {
-                alert("No se detectaron productos válidos de Amazon (ASIN no encontrado) en este pack para añadir al carrito automáticamente.");
-            }
-        }
-
-        // --- Sidebar Toggle ---
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('overlay');
@@ -472,20 +420,20 @@
         }
         document.getElementById('menu-btn').addEventListener('click', toggleSidebar);
 
-        // --- Búsqueda ---
         document.getElementById('search-main').addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase();
             if (!term) { renderView(); return; }
             
             const filteredPacks = data.packs.filter(p => p.title.toLowerCase().includes(term));
-            document.getElementById('packs-container').innerHTML = filteredPacks.map(p => `
-                <article class="bg-white p-4 rounded shadow cursor-pointer hover:bg-gray-50" onclick="navigateTo('detail', '${p.id}')">
-                    <h2 class="font-bold">${p.title}</h2>
-                </article>
-            `).join('') || '<p class="text-center py-10 text-gray-400">Sin resultados</p>';
+            if(currentView === 'home') {
+                document.getElementById('packs-container').innerHTML = filteredPacks.map(p => `
+                    <article class="bg-white p-4 rounded shadow cursor-pointer hover:bg-gray-50" onclick="navigateTo('detail', '${p.id}')">
+                        <h2 class="font-bold">${p.title}</h2>
+                    </article>
+                `).join('') || '<p class="text-center py-10 text-gray-400">Sin resultados</p>';
+            }
         });
 
-        // Init
         loadData();
     </script>
 </body>
