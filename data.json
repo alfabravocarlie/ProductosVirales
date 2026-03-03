@@ -1,137 +1,137 @@
 {
-    "categories": [
-        "Amazon Packs",
-        "Tecnolog\u00eda",
-        "Hogar",
-        "Ofertas"
-    ],
-    "packs": [
+  "categories": [
+    "Amazon Packs",
+    "Tecnología",
+    "Hogar",
+    "Ofertas"
+  ],
+  "packs": [
+    {
+      "id": "pack-1772499413731",
+      "title": "Wellness & Productividad en Casa 2026",
+      "description": "Si marzo te está pidiendo un reinicio mental, físico y creativo, este combo es tu nueva base de poder. Reuní cuatro superventas reales —gadgets que están arrasando en Amazon— para ayudarte a hidratarte mejor, concentrarte más, moverte todos los días y organizar tu mente desde casa sin complicarte la vida. Todo dentro de un rango accesible de 195–240 USD, con ofertas que cambian cada semana.\n\n💧 1. Owala FreeSip (32 oz): hidratación que sí provoca\nLa botella insulated #1 del momento. Mantiene tu agua fría por horas, tiene doble forma de beber (sorbo o pajita) y te acompaña desde la mañana hasta el último pendiente del día. Ideal para quienes quieren convertir la hidratación en un hábito real y no en un propósito olvidado.\n\n🎧 2. Apple AirPods 4: foco mental instantáneo\nCancelación de ruido mejorada, audio espacial y comodidad total. Perfectos para llamadas, sesiones de trabajo profundo, podcasts motivadores o música para entrenar. Son ese “modo zen” que activas en segundos cuando el caos exterior quiere robarte la concentración.\n\n🧘 3. Amazon Basics Extra Thick Yoga Mat: movimiento cómodo y diario\nUn mat grueso, estable y bestseller. Funciona para yoga, estiramientos, pilates o cualquier rutina de piso. Su acolchado hace que moverte en casa sea más amable, más constante y más sostenible a largo plazo.\n\n📺 4. Fire TV Stick 4K Select: tu guía wellness en pantalla\nConvierte tu TV en un hub inteligente para rutinas de meditación, yoga, fitness, playlists energéticas y control por voz. Es el puente perfecto entre tus hábitos y la motivación visual que necesitas para mantenerlos.\n\n✨ ¿Por qué este combo funciona tan bien?\nPorque cubre los cuatro pilares que más impactan tu bienestar diario cuando trabajas o estudias desde casa:\n\nHidratación para energía sostenida.\n\nAudio inmersivo para foco real.\n\nMovimiento diario para liberar tensión.\n\nGuía visual para mantener constancia sin pensar demasiado.\n\nTodo con productos que ya son tendencia, tienen alta rotación post-resoluciones y encajan perfecto en una rutina moderna, práctica y sin complicaciones.",
+      "image": "Imagenes/Pack-2.png",
+      "category": "Amazon Packs",
+      "date": "2026-03-03",
+      "items": [
         {
-            "id": "pack-1772499413731",
-            "title": "Wellness & Productividad en Casa 2026",
-            "description": "Si marzo te est\u00e1 pidiendo un reinicio mental, f\u00edsico y creativo, este combo es tu nueva base de poder. Reun\u00ed cuatro superventas reales \u2014gadgets que est\u00e1n arrasando en Amazon\u2014 para ayudarte a hidratarte mejor, concentrarte m\u00e1s, moverte todos los d\u00edas y organizar tu mente desde casa sin complicarte la vida. Todo dentro de un rango accesible de 195\u2013240 USD, con ofertas que cambian cada semana.\n\n\ud83d\udca7 1. Owala FreeSip (32 oz): hidrataci\u00f3n que s\u00ed provoca\nLa botella insulated #1 del momento. Mantiene tu agua fr\u00eda por horas, tiene doble forma de beber (sorbo o pajita) y te acompa\u00f1a desde la ma\u00f1ana hasta el \u00faltimo pendiente del d\u00eda. Ideal para quienes quieren convertir la hidrataci\u00f3n en un h\u00e1bito real y no en un prop\u00f3sito olvidado.\n\n\ud83c\udfa7 2. Apple AirPods 4: foco mental instant\u00e1neo\nCancelaci\u00f3n de ruido mejorada, audio espacial y comodidad total. Perfectos para llamadas, sesiones de trabajo profundo, podcasts motivadores o m\u00fasica para entrenar. Son ese \u201cmodo zen\u201d que activas en segundos cuando el caos exterior quiere robarte la concentraci\u00f3n.\n\n\ud83e\uddd8 3. Amazon Basics Extra Thick Yoga Mat: movimiento c\u00f3modo y diario\nUn mat grueso, estable y bestseller. Funciona para yoga, estiramientos, pilates o cualquier rutina de piso. Su acolchado hace que moverte en casa sea m\u00e1s amable, m\u00e1s constante y m\u00e1s sostenible a largo plazo.\n\n\ud83d\udcfa 4. Fire TV Stick 4K Select: tu gu\u00eda wellness en pantalla\nConvierte tu TV en un hub inteligente para rutinas de meditaci\u00f3n, yoga, fitness, playlists energ\u00e9ticas y control por voz. Es el puente perfecto entre tus h\u00e1bitos y la motivaci\u00f3n visual que necesitas para mantenerlos.\n\n\u2728 \u00bfPor qu\u00e9 este combo funciona tan bien?\nPorque cubre los cuatro pilares que m\u00e1s impactan tu bienestar diario cuando trabajas o estudias desde casa:\n\nHidrataci\u00f3n para energ\u00eda sostenida.\n\nAudio inmersivo para foco real.\n\nMovimiento diario para liberar tensi\u00f3n.\n\nGu\u00eda visual para mantener constancia sin pensar demasiado.\n\nTodo con productos que ya son tendencia, tienen alta rotaci\u00f3n post-resoluciones y encajan perfecto en una rutina moderna, pr\u00e1ctica y sin complicaciones.",
-            "image": "Imagenes\/Pack-2.png",
-            "category": "Amazon Packs",
-            "date": "2026-03-03",
-            "items": [
-                {
-                    "name": "Owala FreeSip",
-                    "price": "34.94",
-                    "link": "https:\/\/amzn.to\/4aW6MAh",
-                    "image": "https:\/\/m.media-amazon.com\/images\/I\/411VuaxGFsL._AC_SX569_.jpg",
-                    "description": "Botella de agua aislada de acero inoxidable con popote, botella de agua deportiva sin BPA, ideal para viajes, 32 onzas, cereza negra"
-                },
-                {
-                    "name": "Apple AirPods 4",
-                    "price": "99.00",
-                    "link": "https:\/\/amzn.to\/4r8NFcr",
-                    "image": "https:\/\/m.media-amazon.com\/images\/I\/61iBtxCUabL._AC_SX679_.jpg",
-                    "description": "auriculares inal\u00e1mbricos, auriculares Bluetooth, audio espacial personalizado, resistente al sudor y al agua, estuche de carga USB-C, chip H2, hasta 30 horas de duraci\u00f3n de bater\u00eda"
-                },
-                {
-                    "name": "Amazon Basics Extra Thick Exercise Yoga Mat with Carrying Strap",
-                    "price": "21.58",
-                    "link": "https:\/\/amzn.to\/4sn6I3H",
-                    "image": "https:\/\/m.media-amazon.com\/images\/I\/61WrjbRYC3L._AC_SX425_.jpg",
-                    "description": "100% espuma NBR\nImportado\nAlfombra de piso extra gruesa y acolchada en negro para yoga, gimnasio y ejercicio diario\nEl grosor de 1\/2 pulgada ofrece un c\u00f3modo apoyo acolchado y absorci\u00f3n de impactos; la superficie texturizada proporciona tracci\u00f3n adicional\nConstrucci\u00f3n de espuma duradera que ofrece elasticidad y vuelve a su forma\nCorrea el\u00e1stica para un almacenamiento seguro de la alfombrilla enrollada y f\u00e1cil transporte sobre el hombro\nSe limpia f\u00e1cilmente con un pa\u00f1o"
-                },
-                {
-                    "name": "Amazon Fire TV Stick 4K Select ",
-                    "price": "19.99",
-                    "link": "https:\/\/amzn.to\/40GtFTA",
-                    "image": "https:\/\/m.media-amazon.com\/images\/I\/61gw-l3qyVL._AC_SY741_.jpg",
-                    "description": "streaming en 4K, b\u00fasqueda con inteligencia artificial y TV en vivo gratis"
-                }
-            ]
+          "name": "Owala FreeSip",
+          "price": "34.94",
+          "link": "https://amzn.to/4aW6MAh",
+          "image": "https://m.media-amazon.com/images/I/411VuaxGFsL._AC_SX569_.jpg",
+          "description": "Botella de agua aislada de acero inoxidable con popote, botella de agua deportiva sin BPA, ideal para viajes, 32 onzas, cereza negra"
         },
         {
-            "id": "pack-1772482808348",
-            "title": "Curso de resina Epoxi",
-            "description": "\u00bfAlguna vez has so\u00f1ado con crear accesorios \u00fanicos que reflejen tu estilo personal? \u00a1Ahora es el momento de hacerlo realidad! Te presentamos nuestro exclusivo curso DISE\u00d1A Y CREA CON RESINA, una experiencia transformadora que desbloquear\u00e1 tu creatividad y te llevar\u00e1 a crear de una manera f\u00e1cil y din\u00e1mica tus propios accesorios en resina. \u00bfQu\u00e9 aprender\u00e1s? \ud83e\udd14 \nEn este curso, no solo adquirir\u00e1s habilidades t\u00e9cnicas para trabajar con resina, sino que tambi\u00e9n descubrir\u00e1s los secretos para dise\u00f1ar piezas \u00fanicas como: \n\u2b50 Llaveros \n\u2b50 Lapiceros \n\u2b50 Agendas \n\u2b50 Marca libros \n\u2b50 Peines \n\u2b50 Ganchos para cabello \n\u2b50 Plaquitas para mascotas \n\u2b50 Porta vasos \n\u2b50 Fundas para celular \n\u2b50 Pop Sockets \n\u2b50 Aretes \n\u2b50 Collares \n\u2b50 Pulseras \n\u2b50 Anillos \n\u2b50 Cuadros \n\u2b50 Relojes \n\u2b50 Tazas \n\u2b50 L\u00e1mparas \n\u2b50 Recuerdo de reci\u00e9n nacido Y mucho m\u00e1s... \nBeneficios del curso: \n- Aprender\u00e1s desde cero y paso a paso la manera correcta para que te vuelvas un experto elaborando accesorios en resina. \n- Tendr\u00e1s el acompa\u00f1amiento necesario por si tienes dudas o preguntas. \n- Aprender\u00e1s a c\u00f3mo evitar los errores m\u00e1s comunes que se cometen al trabajar con resina. \n- Con nuestro curso obtendr\u00e1s acceso a una lista de proveedores para que sepas en d\u00f3nde comprar los materiales en tu pa\u00eds. \n- Con nuestro curso aprender\u00e1s a tu propio ritmo y podr\u00e1s ver las clases en tu tiempo libre y desde donde est\u00e9s. \u00bfPor qu\u00e9 elegir nuestro curso? \ud83e\udd14 \n\ud83c\udf93 Instructora Experta: Nuestra profesora es experta en la elaboraci\u00f3n de accesorios en resina y te guiar\u00e1 con pasi\u00f3n y experiencia durante el curso. \n\ud83c\udf10 Acceso de por vida: Una vez que te inscribes, obtienes acceso ilimitado al contenido del curso, lo que te permite aprender a tu propio ritmo, donde y cuando quieras. \n\ud83d\udca1 Comunidad Creativa: \u00danete a nuestra comunidad de alumnos que son creadores como t\u00fa, comparte ideas, recibe retroalimentaci\u00f3n y encuentra inspiraci\u00f3n con otras personas que comparten tus mismos gustos. \u00a1Inscr\u00edbete ahora y comienza tu viaje creativo hoy mismo! \ud83c\udf1f",
-            "image": "Imagenes\/Curso.png",
-            "category": "Ofertas",
-            "date": "2026-03-03",
-            "items": [
-                {
-                    "name": "Curso de resina Epox",
-                    "price": "74.00",
-                    "link": "https:\/\/go.hotmart.com\/V104550809O",
-                    "image": "https:\/\/static-media.hotmart.com\/mscv29Nznog7exyHS4UmKm6h1sU=\/filters:background_color(white)\/hotmart\/product_pictures\/753d70da-ad49-4a5a-8bcb-c28508249ed1\/PORTADACURSO.png",
-                    "description": "\u2728 \u00bfQuieres transformar tu creatividad en ingresos reales? \u2728\n\n\u00bfAlguna vez so\u00f1aste con crear accesorios \u00fanicos que reflejen tu estilo personal?\n\u00a1Ahora es el momento de hacerlo realidad! \ud83d\udc8e\n\n\ud83d\udc49 Te presentamos el curso DISE\u00d1A Y CREA CON RESINA, una experiencia transformadora donde aprender\u00e1s paso a paso a elaborar accesorios incre\u00edbles como:\n\u2b50 Llaveros, aretes, collares, pulseras\n\u2b50 Agendas, pop sockets, porta vasos\n\u2b50 Cuadros, relojes, l\u00e1mparas\u2026 \u00a1y mucho m\u00e1s!\n\n\ud83c\udf93 Beneficios del curso:\n\nAprende desde cero, sin errores caros.\n\nAcompa\u00f1amiento y soporte personalizado.\n\nLista de proveedores en tu pa\u00eds.\n\nAcceso de por vida y comunidad creativa.\n\n\ud83d\ude80 Ideal para mam\u00e1s y emprendedoras que quieren monetizar su hobby desde casa.\n\n\ud83d\udca1 \u00a1Convierte tu pasi\u00f3n en ventas diarias y empieza a crear piezas que se venden solas!"
-                }
-            ]
+          "name": "Apple AirPods 4",
+          "price": "99.00",
+          "link": "https://amzn.to/4r8NFcr",
+          "image": "https://m.media-amazon.com/images/I/61iBtxCUabL._AC_SX679_.jpg",
+          "description": "auriculares inalámbricos, auriculares Bluetooth, audio espacial personalizado, resistente al sudor y al agua, estuche de carga USB-C, chip H2, hasta 30 horas de duración de batería"
         },
         {
-            "id": "pack-1772480077386",
-            "title": "Vida inteligente y activa en casa",
-            "description": "\ud83d\udd25 Bienvenido a Tu Combo Inteligente 2026 \ud83d\udd25  \nEl canal donde encuentras los mejores productos de Amazon, seleccionados para mejorar tu vida diaria: tecnolog\u00eda smart, cocina r\u00e1pida y saludable, fitness en casa y gadgets que realmente valen la pena.\n\nAqu\u00ed no pierdes tiempo:\n\n\ud83e\udde0 Recomendaciones inteligentes\n\n\ud83d\udcb8 Ofertas reales y enlaces directos\n\n\ud83c\udfe0 Productos \u00fatiles para tu hogar\n\n\ud83d\udcaa Accesorios fitness que s\u00ed funcionan\n\n\u26a1 Combos listos para transformar tu rutina\n\nTodo probado, filtrado y explicado de forma clara para que compres solo lo que te aporta valor.\nPrep\u00e1rate para llevar tu casa, tu salud y tu productividad al siguiente nivel.\n\u00a1Tu mejor versi\u00f3n empieza aqu\u00ed! \ud83d\ude80\ud83d\udd25\n\n\ud83c\udfaf Promoci\u00f3n del combo \u201cVida Inteligente y Activa en Casa\u201d\n\u00bfQuieres un 2026 m\u00e1s productivo, saludable y organizado sin gastar una fortuna?  \nEste combo es para ti \ud83d\udc47\ud83d\udca5\n\n\ud83d\udd0a Alexa \u2013 Echo Dot 5ta Gen\nConvierte tu casa en un hogar inteligente: m\u00fasica, alarmas motivadoras, rutinas, control por voz y m\u00e1s.\n\ud83d\udc49 https:\/\/amzn.to\/3MXM1fJ\n\n\ud83c\udf5f Freidora de Aire Ninja\nComidas r\u00e1pidas, ricas y sin culpa. Perfecta para cenas ligeras o post-entreno.\n\ud83d\udc49 https:\/\/amzn.to\/4rRm9By\n\n\u231a Reloj Fitness (Smartband\/Smartwatch)\nControla tus pasos, sue\u00f1o, ritmo card\u00edaco y mantente motivado todo el d\u00eda.\n\ud83d\udc49 https:\/\/amzn.to\/40CSBeF\n\n\ud83c\udfcb\ufe0f Bandas de Resistencia \u2013 Entrena en cualquier lugar\nTonifica, entrena y mu\u00e9vete sin necesidad de espacio ni equipo caro.\n\ud83d\udc49 https:\/\/amzn.to\/3N2psX4\n\n\ud83d\udca5 \u00bfPor qu\u00e9 este combo es un \u00e9xito?\n\ud83e\udde9 Se complementan entre s\u00ed\n\n\ud83c\udfe0 Funcionan perfecto para casa\n\n\ud83d\udcb0 Precio total accesible\n\n\u26a1 Mejoran tu rutina desde el d\u00eda 1\n\n\ud83c\udfaf Ideales para resoluciones de a\u00f1o nuevo, fitness, productividad y bienestar\n\nHaz clic, revisa y ll\u00e9vate lo que m\u00e1s te guste.  \nTu vida inteligente empieza HOY \u2728\ud83d\udd25",
-            "image": "Imagenes\/Pack-1.jpg",
-            "category": "Amazon Packs",
-            "date": "2026-03-03",
-            "items": [
-                {
-                    "name": "Amazon Echo Dot: parlante Alexa con sonido vibrante, ideal para dormitorios, comedores y oficinas (carb\u00f3n)",
-                    "price": "49.99",
-                    "link": "https:\/\/amzn.to\/3MXM1fJ",
-                    "image": "https:\/\/m.media-amazon.com\/images\/I\/71jJawyjDFL._AC_SY550_.jpg",
-                    "description": "Tu m\u00fasica y contenido favoritos \u2013 Reproduce m\u00fasica, audiolibros y podcasts en Amazon Music, Apple Music, Spotify y otros servicios o a trav\u00e9s de Bluetooth en tu hogar."
-                },
-                {
-                    "name": "Ninja | Freidora de aire",
-                    "price": "129.99 ",
-                    "link": "https:\/\/amzn.to\/4rRm9By",
-                    "image": "https:\/\/m.media-amazon.com\/images\/I\/71QwoGmcfUL._AC_SY450_.jpg",
-                    "description": "Ninja | Freidora de aire | 4 en 1 Pro: fre\u00edr al aire, asar, recalentar, deshidratar | Capacidad de 5QT, cabe hasta 4 libras de papas fritas | Temperatura m\u00e1xima de 400\u00b0F | Cesta antiadherente y placa"
-                },
-                {
-                    "name": "Fitbit Inspire 3",
-                    "price": "99.95",
-                    "link": "https:\/\/amzn.to\/40CSBeF",
-                    "image": "https:\/\/m.media-amazon.com\/images\/I\/51CtR+quteL._AC_SX679_.jpg",
-                    "description": "Fitbit Inspire 3 rastreador de salud y fitness con control del estr\u00e9s, intensidad de entrenamiento, seguimiento del sue\u00f1o, frecuencia card\u00edaca 24\/7 y m\u00e1s, Midnight Zen\/negro, talla \u00fanica (bandas S y L"
-                },
-                {
-                    "name": "VEICK Bandas de resistencia",
-                    "price": "27.97",
-                    "link": "https:\/\/amzn.to\/3N2psX4",
-                    "image": "https:\/\/m.media-amazon.com\/images\/I\/71F4LEZeoCL._AC_SX425_.jpg",
-                    "description": "VEICK Bandas de resistencia, bandas de ejercicio, bandas de entrenamiento, bandas de resistencia para entrenar con asas para hombres y mujeres, bandas de ejercicio para pesas de fitness, entrenamiento"
-                }
-            ]
+          "name": "Amazon Basics Extra Thick Exercise Yoga Mat with Carrying Strap",
+          "price": "21.58",
+          "link": "https://amzn.to/4sn6I3H",
+          "image": "https://m.media-amazon.com/images/I/61WrjbRYC3L._AC_SX425_.jpg",
+          "description": "100% espuma NBR\nImportado\nAlfombra de piso extra gruesa y acolchada en negro para yoga, gimnasio y ejercicio diario\nEl grosor de 1/2 pulgada ofrece un cómodo apoyo acolchado y absorción de impactos; la superficie texturizada proporciona tracción adicional\nConstrucción de espuma duradera que ofrece elasticidad y vuelve a su forma\nCorrea elástica para un almacenamiento seguro de la alfombrilla enrollada y fácil transporte sobre el hombro\nSe limpia fácilmente con un paño"
+        },
+        {
+          "name": "Amazon Fire TV Stick 4K Select ",
+          "price": "19.99",
+          "link": "https://amzn.to/40GtFTA",
+          "image": "https://m.media-amazon.com/images/I/61gw-l3qyVL._AC_SY741_.jpg",
+          "description": "streaming en 4K, búsqueda con inteligencia artificial y TV en vivo gratis"
         }
-    ],
-    "store": [
+      ]
+    },
+    {
+      "id": "pack-1772482808348",
+      "title": "Curso de resina Epoxi",
+      "description": "¿Alguna vez has soñado con crear accesorios únicos que reflejen tu estilo personal? ¡Ahora es el momento de hacerlo realidad! Te presentamos nuestro exclusivo curso DISEÑA Y CREA CON RESINA, una experiencia transformadora que desbloqueará tu creatividad y te llevará a crear de una manera fácil y dinámica tus propios accesorios en resina. ¿Qué aprenderás? 🤔 \nEn este curso, no solo adquirirás habilidades técnicas para trabajar con resina, sino que también descubrirás los secretos para diseñar piezas únicas como: \n⭐ Llaveros \n⭐ Lapiceros \n⭐ Agendas \n⭐ Marca libros \n⭐ Peines \n⭐ Ganchos para cabello \n⭐ Plaquitas para mascotas \n⭐ Porta vasos \n⭐ Fundas para celular \n⭐ Pop Sockets \n⭐ Aretes \n⭐ Collares \n⭐ Pulseras \n⭐ Anillos \n⭐ Cuadros \n⭐ Relojes \n⭐ Tazas \n⭐ Lámparas \n⭐ Recuerdo de recién nacido Y mucho más... \nBeneficios del curso: \n- Aprenderás desde cero y paso a paso la manera correcta para que te vuelvas un experto elaborando accesorios en resina. \n- Tendrás el acompañamiento necesario por si tienes dudas o preguntas. \n- Aprenderás a cómo evitar los errores más comunes que se cometen al trabajar con resina. \n- Con nuestro curso obtendrás acceso a una lista de proveedores para que sepas en dónde comprar los materiales en tu país. \n- Con nuestro curso aprenderás a tu propio ritmo y podrás ver las clases en tu tiempo libre y desde donde estés. ¿Por qué elegir nuestro curso? 🤔 \n🎓 Instructora Experta: Nuestra profesora es experta en la elaboración de accesorios en resina y te guiará con pasión y experiencia durante el curso. \n🌐 Acceso de por vida: Una vez que te inscribes, obtienes acceso ilimitado al contenido del curso, lo que te permite aprender a tu propio ritmo, donde y cuando quieras. \n💡 Comunidad Creativa: Únete a nuestra comunidad de alumnos que son creadores como tú, comparte ideas, recibe retroalimentación y encuentra inspiración con otras personas que comparten tus mismos gustos. ¡Inscríbete ahora y comienza tu viaje creativo hoy mismo! 🌟",
+      "image": "Imagenes/Curso.png",
+      "category": "Ofertas",
+      "date": "2026-03-03",
+      "items": [
         {
-            "id": "store-1772480371385",
-            "title": "VEICK Bandas de resistencia",
-            "price": "27.97",
-            "link": "https:\/\/amzn.to\/3N2psX4",
-            "image": "https:\/\/m.media-amazon.com\/images\/I\/71F4LEZeoCL._AC_SX425_.jpg",
-            "category": "Amazon Packs"
-        },
-        {
-            "id": "store-1772480338160",
-            "title": "Fitbit Inspire 3",
-            "price": "99.95",
-            "link": "https:\/\/amzn.to\/40CSBeF",
-            "image": "https:\/\/m.media-amazon.com\/images\/I\/51CtR+quteL._AC_SX679_.jpg",
-            "category": "Amazon Packs"
-        },
-        {
-            "id": "store-1772480299152",
-            "title": "Ninja | Freidora de aire",
-            "price": "129.99",
-            "link": "https:\/\/amzn.to\/4rRm9By",
-            "image": "https:\/\/m.media-amazon.com\/images\/I\/71QwoGmcfUL._AC_SY450_.jpg",
-            "category": "Amazon Packs"
-        },
-        {
-            "id": "store-1772480244298",
-            "title": "Amazon Echo Dot: parlante Alexa con sonido vibrante",
-            "price": "49.99",
-            "link": "https:\/\/amzn.to\/3MXM1fJ",
-            "image": "https:\/\/m.media-amazon.com\/images\/I\/71jJawyjDFL._AC_SY550_.jpg",
-            "category": "Amazon Packs"
+          "name": "Curso de resina Epox",
+          "price": "74.00",
+          "link": "https://go.hotmart.com/V104550809O",
+          "image": "https://static-media.hotmart.com/mscv29Nznog7exyHS4UmKm6h1sU=/filters:background_color(white)/hotmart/product_pictures/753d70da-ad49-4a5a-8bcb-c28508249ed1/PORTADACURSO.png",
+          "description": "✨ ¿Quieres transformar tu creatividad en ingresos reales? ✨\n\n¿Alguna vez soñaste con crear accesorios únicos que reflejen tu estilo personal?\n¡Ahora es el momento de hacerlo realidad! 💎\n\n👉 Te presentamos el curso DISEÑA Y CREA CON RESINA, una experiencia transformadora donde aprenderás paso a paso a elaborar accesorios increíbles como:\n⭐ Llaveros, aretes, collares, pulseras\n⭐ Agendas, pop sockets, porta vasos\n⭐ Cuadros, relojes, lámparas… ¡y mucho más!\n\n🎓 Beneficios del curso:\n\nAprende desde cero, sin errores caros.\n\nAcompañamiento y soporte personalizado.\n\nLista de proveedores en tu país.\n\nAcceso de por vida y comunidad creativa.\n\n🚀 Ideal para mamás y emprendedoras que quieren monetizar su hobby desde casa.\n\n💡 ¡Convierte tu pasión en ventas diarias y empieza a crear piezas que se venden solas!"
         }
-    ]
+      ]
+    },
+    {
+      "id": "pack-1772480077386",
+      "title": "Vida inteligente y activa en casa",
+      "description": "🔥 Bienvenido a Tu Combo Inteligente 2026 🔥  \nEl canal donde encuentras los mejores productos de Amazon, seleccionados para mejorar tu vida diaria: tecnología smart, cocina rápida y saludable, fitness en casa y gadgets que realmente valen la pena.\n\nAquí no pierdes tiempo:\n\n🧠 Recomendaciones inteligentes\n\n💸 Ofertas reales y enlaces directos\n\n🏠 Productos útiles para tu hogar\n\n💪 Accesorios fitness que sí funcionan\n\n⚡ Combos listos para transformar tu rutina\n\nTodo probado, filtrado y explicado de forma clara para que compres solo lo que te aporta valor.\nPrepárate para llevar tu casa, tu salud y tu productividad al siguiente nivel.\n¡Tu mejor versión empieza aquí! 🚀🔥\n\n🎯 Promoción del combo “Vida Inteligente y Activa en Casa”\n¿Quieres un 2026 más productivo, saludable y organizado sin gastar una fortuna?  \nEste combo es para ti 👇💥\n\n🔊 Alexa – Echo Dot 5ta Gen\nConvierte tu casa en un hogar inteligente: música, alarmas motivadoras, rutinas, control por voz y más.\n👉 https://amzn.to/3MXM1fJ\n\n🍟 Freidora de Aire Ninja\nComidas rápidas, ricas y sin culpa. Perfecta para cenas ligeras o post-entreno.\n👉 https://amzn.to/4rRm9By\n\n⌚ Reloj Fitness (Smartband/Smartwatch)\nControla tus pasos, sueño, ritmo cardíaco y mantente motivado todo el día.\n👉 https://amzn.to/40CSBeF\n\n🏋️ Bandas de Resistencia – Entrena en cualquier lugar\nTonifica, entrena y muévete sin necesidad de espacio ni equipo caro.\n👉 https://amzn.to/3N2psX4\n\n💥 ¿Por qué este combo es un éxito?\n🧩 Se complementan entre sí\n\n🏠 Funcionan perfecto para casa\n\n💰 Precio total accesible\n\n⚡ Mejoran tu rutina desde el día 1\n\n🎯 Ideales para resoluciones de año nuevo, fitness, productividad y bienestar\n\nHaz clic, revisa y llévate lo que más te guste.  \nTu vida inteligente empieza HOY ✨🔥",
+      "image": "Imagenes/Pack-1.jpg",
+      "category": "Amazon Packs",
+      "date": "2026-03-03",
+      "items": [
+        {
+          "name": "Amazon Echo Dot: parlante Alexa con sonido vibrante, ideal para dormitorios, comedores y oficinas (carbón)",
+          "price": "49.99",
+          "link": "https://amzn.to/3MXM1fJ",
+          "image": "https://m.media-amazon.com/images/I/71jJawyjDFL._AC_SY550_.jpg",
+          "description": "Tu música y contenido favoritos – Reproduce música, audiolibros y podcasts en Amazon Music, Apple Music, Spotify y otros servicios o a través de Bluetooth en tu hogar."
+        },
+        {
+          "name": "Ninja | Freidora de aire",
+          "price": "129.99 ",
+          "link": "https://amzn.to/4rRm9By",
+          "image": "https://m.media-amazon.com/images/I/71QwoGmcfUL._AC_SY450_.jpg",
+          "description": "Ninja | Freidora de aire | 4 en 1 Pro: freír al aire, asar, recalentar, deshidratar | Capacidad de 5QT, cabe hasta 4 libras de papas fritas | Temperatura máxima de 400°F | Cesta antiadherente y placa"
+        },
+        {
+          "name": "Fitbit Inspire 3",
+          "price": "99.95",
+          "link": "https://amzn.to/40CSBeF",
+          "image": "https://m.media-amazon.com/images/I/51CtR+quteL._AC_SX679_.jpg",
+          "description": "Fitbit Inspire 3 rastreador de salud y fitness con control del estrés, intensidad de entrenamiento, seguimiento del sueño, frecuencia cardíaca 24/7 y más, Midnight Zen/negro, talla única (bandas S y L"
+        },
+        {
+          "name": "VEICK Bandas de resistencia",
+          "price": "27.97",
+          "link": "https://amzn.to/3N2psX4",
+          "image": "https://m.media-amazon.com/images/I/71F4LEZeoCL._AC_SX425_.jpg",
+          "description": "VEICK Bandas de resistencia, bandas de ejercicio, bandas de entrenamiento, bandas de resistencia para entrenar con asas para hombres y mujeres, bandas de ejercicio para pesas de fitness, entrenamiento"
+        }
+      ]
+    }
+  ],
+  "store": [
+    {
+      "id": "store-1772480371385",
+      "title": "VEICK Bandas de resistencia",
+      "price": "27.97",
+      "link": "https://amzn.to/3N2psX4",
+      "image": "https://m.media-amazon.com/images/I/71F4LEZeoCL._AC_SX425_.jpg",
+      "category": "Amazon Packs"
+    },
+    {
+      "id": "store-1772480338160",
+      "title": "Fitbit Inspire 3",
+      "price": "99.95",
+      "link": "https://amzn.to/40CSBeF",
+      "image": "https://m.media-amazon.com/images/I/51CtR+quteL._AC_SX679_.jpg",
+      "category": "Amazon Packs"
+    },
+    {
+      "id": "store-1772480299152",
+      "title": "Ninja | Freidora de aire",
+      "price": "129.99",
+      "link": "https://amzn.to/4rRm9By",
+      "image": "https://m.media-amazon.com/images/I/71QwoGmcfUL._AC_SY450_.jpg",
+      "category": "Amazon Packs"
+    },
+    {
+      "id": "store-1772480244298",
+      "title": "Amazon Echo Dot: parlante Alexa con sonido vibrante",
+      "price": "49.99",
+      "link": "https://amzn.to/3MXM1fJ",
+      "image": "https://m.media-amazon.com/images/I/71jJawyjDFL._AC_SY550_.jpg",
+      "category": "Amazon Packs"
+    }
+  ]
 }
