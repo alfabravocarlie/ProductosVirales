@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProductosVirales24 Blog - Ofertas y Análisis</title>
+    <title>PackStore Blog - Ofertas y Análisis</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -14,7 +14,9 @@
                     animation: {
                         'slide-in-right': 'slideInRight 0.5s ease-out forwards',
                         'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
-                        'pulse-soft': 'pulseSoft 2s infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                        'spin-reverse': 'spin-reverse 25s linear infinite',
+                        'bounce-soft': 'bounceSoft 2s ease-in-out infinite',
                     },
                     keyframes: {
                         slideInRight: {
@@ -25,9 +27,11 @@
                             '0%': { transform: 'translateY(20px)', opacity: '0' },
                             '100%': { transform: 'translateY(0)', opacity: '1' },
                         },
-                        pulseSoft: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0.7' },
+                        spin: { from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(360deg)' } },
+                        'spin-reverse': { from: { transform: 'rotate(360deg)' }, to: { transform: 'rotate(0deg)' } },
+                        bounceSoft: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
                         }
                     }
                 }
@@ -35,40 +39,49 @@
         }
     </script>
     <style>
-        /* Scrollbar personalizado */
+        /* Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #fdba74; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #f97316; }
-
-        /* Animaciones básicas para elementos que entran a la vista */
-        .animate-on-scroll { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
-        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
-
-        /* Efecto de imagen al hacer hover */
-        .img-zoom { transition: transform 0.5s ease; }
-        .group:hover .img-zoom { transform: scale(1.1); }
+        
+        /* Animaciones de entrada */
+        .animate-item { opacity: 0; animation: fadeInUp 0.6s ease-out forwards; }
+        
+        /* Decoraciones Florales / Geométricas */
+        .deco-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(249, 115, 22, 0.2);
+            pointer-events: none;
+        }
+        .deco-flower {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(249, 115, 22, 0.1) 2px, transparent 2.5px);
+            background-size: 20px 20px;
+            opacity: 0.6;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
 
     <!-- ==================== NOTIFICACIÓN FLOTANTE ==================== -->
-    <!-- Esta es la notificación que aparece y desaparece -->
     <div id="toast-notification" class="fixed top-20 right-4 z-50 w-80 bg-white border-l-4 border-orange-500 rounded-lg shadow-2xl p-4 transform translate-x-full transition-transform duration-500 ease-out cursor-pointer hover:scale-105" onclick="this.classList.add('translate-x-full')">
         <div class="flex items-start">
-            <div class="flex-shrink-0 bg-orange-100 p-2 rounded-full animate-pulse-soft">
-                <i class="fas fa-exclamation-triangle text-orange-500 text-xl"></i>
+            <div class="flex-shrink-0 bg-orange-100 p-2 rounded-full animate-pulse">
+                <i class="fas fa-info-circle text-orange-500 text-xl"></i>
             </div>
             <div class="ml-3 w-full">
-                <p class="text-sm font-bold text-gray-900">¡Atención al Precio!</p>
-                <p class="text-xs text-gray-600 mt-1">Los precios pueden haber cambiado desde la fecha de publicación. Verifica el precio final en Amazon antes de comprar.</p>
-                <p class="text-xs text-gray-400 mt-2 text-right italic">Clic para cerrar</p>
+                <p class="text-sm font-bold text-gray-900">¡Importante!</p>
+                <p class="text-xs text-gray-600 mt-1">Los precios pueden variar desde la fecha de publicación. Verifica el precio final en Amazon.</p>
             </div>
         </div>
     </div>
 
     <!-- ==================== NAVBAR ==================== -->
-    <nav class="bg-white shadow-lg fixed w-full z-40 top-0 h-16 transition-all duration-300">
+    <nav class="bg-white shadow-lg fixed w-full z-40 top-0 h-16">
         <div class="max-w-7xl mx-auto px-4 h-full flex justify-between items-center">
             <div class="flex items-center">
                 <button id="menu-btn" class="lg:hidden text-gray-600 mr-4 focus:outline-none transform hover:rotate-90 transition-transform duration-300">
@@ -81,110 +94,137 @@
             </div>
             
             <div class="hidden md:flex items-center space-x-8">
-                <button onclick="navigateTo('home')" class="relative text-gray-600 hover:text-orange-500 font-medium transition-colors group">
-                    Blog
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                <button onclick="navigateTo('home')" class="relative text-gray-600 hover:text-orange-500 font-medium group">
+                    Blog <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
                 </button>
-                <button onclick="navigateTo('store')" class="relative text-gray-600 hover:text-orange-500 font-medium transition-colors group">
-                    Tienda
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                <button onclick="navigateTo('store')" class="relative text-gray-600 hover:text-orange-500 font-medium group">
+                    Tienda <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
                 </button>
             </div>
 
             <div class="flex items-center space-x-4">
                 <div class="hidden sm:block relative">
                     <input type="text" id="search-main" placeholder="Buscar..." 
-                           class="border border-gray-200 rounded-full px-4 py-1.5 pl-8 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent w-48 transition-all">
+                           class="border border-gray-200 rounded-full px-4 py-1.5 pl-8 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 w-48 transition-all">
                     <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs"></i>
                 </div>
-                <a href="admin.html" class="text-gray-400 hover:text-gray-600 text-sm transition-colors hover:rotate-12 transform" title="Admin">
-                    <i class="fas fa-user-cog text-lg"></i>
+                <a href="admin.html" class="text-gray-400 hover:text-orange-500 transition-colors" title="Admin">
+                    <i class="fas fa-cog text-lg hover:rotate-90 transition-transform duration-500"></i>
                 </a>
             </div>
         </div>
     </nav>
 
     <!-- ==================== OVERLAY ==================== -->
-    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden transition-opacity duration-300" onclick="toggleSidebar()"></div>
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden transition-opacity" onclick="toggleSidebar()"></div>
 
     <!-- ==================== CONTENEDOR PRINCIPAL ==================== -->
     <div class="flex pt-16 min-h-screen">
         
-        <!-- ==================== SIDEBAR (SOLUCIONADO) ==================== -->
+        <!-- ==================== SIDEBAR ==================== -->
         <aside id="sidebar" 
                class="fixed left-0 top-16 h-[calc(100vh-4rem)] w-72 bg-white shadow-xl z-30 
                       overflow-y-auto transition-transform duration-300 ease-in-out
                       transform -translate-x-full lg:translate-x-0 border-r border-gray-100">
             <div class="p-6">
-                <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-6 flex items-center">
+                <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-6">
                     <i class="fas fa-tags mr-2"></i> Categorías
                 </h3>
                 <ul id="category-list" class="space-y-2">
-                    <li class="text-gray-400 text-sm animate-pulse">Cargando menú...</li>
+                    <li class="text-gray-400 text-sm">Cargando...</li>
                 </ul>
             </div>
         </aside>
 
-        <!-- ==================== ÁREA DE CONTENIDO ==================== -->
+        <!-- ==================== CONTENIDO PRINCIPAL ==================== -->
         <main class="flex-1 lg:ml-72 p-4 sm:p-6 lg:p-8 w-full">
             
-            <!-- VISTA: HOME -->
+            <!-- VISTA: HOME (BLOG) -->
             <section id="view-home" class="max-w-4xl mx-auto">
                 <div class="mb-10 animate-fade-in-up">
                     <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">Últimos Packs</h1>
                     <p class="text-gray-500 text-lg">Selecciones detalladas con el mejor valor.</p>
                 </div>
-                <div id="packs-container" class="space-y-8">
-                    <!-- Cards dinámicas -->
-                </div>
+                <div id="packs-container" class="space-y-8"></div>
             </section>
 
-            <!-- VISTA: TIENDA -->
-            <section id="view-store" class="hidden max-w-6xl mx-auto">
+            <!-- VISTA: TIENDA (GRID RESPONSIVO ARREGLADO) -->
+            <section id="view-store" class="hidden max-w-7xl mx-auto">
                 <div class="mb-10 animate-fade-in-up">
-                    <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">Tienda</h1>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">Tienda de Ofertas</h1>
                     <p class="text-gray-500 text-lg">Enlaces rápidos a productos destacados.</p>
                 </div>
-                <div id="store-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    <!-- Productos tienda dinámicos -->
+                <!-- Grid mejorado: 1 col en movil, 2 en sm, 3 en md, 4 en lg -->
+                <div id="store-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 </div>
             </section>
 
-            <!-- VISTA: DETALLE -->
+            <!-- VISTA: DETALLE (NUEVA ESTRUCTURA) -->
             <section id="view-detail" class="hidden max-w-4xl mx-auto">
-                <button onclick="navigateTo('home')" class="mb-6 text-orange-500 hover:text-orange-600 font-medium flex items-center group transition-all duration-300 hover:pl-2">
-                    <i class="fas fa-arrow-left mr-2 transition-transform group-hover:-translate-x-1"></i> Volver al Blog
+                <button onclick="history.back()" class="mb-6 text-orange-500 hover:text-orange-600 font-medium flex items-center group transition-all">
+                    <i class="fas fa-arrow-left mr-2 group-hover:-translate-x-1"></i> Volver al Blog
                 </button>
                 
                 <article class="bg-white rounded-2xl shadow-xl overflow-hidden animate-fade-in-up">
-                    <div class="relative group overflow-hidden">
-                        <img id="detail-img" src="" alt="" class="w-full h-64 sm:h-96 object-cover img-zoom">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                            <span id="detail-cat" class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg"></span>
+                    
+                    <!-- Cabecera con Imagen y Decoración -->
+                    <div class="relative group overflow-hidden h-64 sm:h-96 bg-gray-100">
+                        <!-- Decoraciones Animadas (Flores/Círculos) -->
+                        <div class="absolute inset-0 flex items-center justify-center overflow-hidden z-0">
+                            <div class="deco-flower animate-spin-slow"></div>
+                            <div class="deco-circle w-48 h-48 animate-spin-reverse border-orange-200 opacity-50"></div>
+                            <div class="deco-circle w-64 h-64 animate-spin-slow border-dashed border-orange-300 opacity-40"></div>
+                            <div class="deco-circle w-80 h-80 animate-spin-reverse border-orange-100 opacity-30"></div>
+                        </div>
+                        
+                        <!-- Imagen Principal -->
+                        <img id="detail-img" src="" alt="" class="relative w-full h-full object-contain z-10 transition-transform duration-500 group-hover:scale-110 drop-shadow-lg">
+                        
+                        <!-- Badge de Categoría -->
+                        <div class="absolute top-4 left-4 z-20 bg-orange-500 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg uppercase tracking-wider animate-bounce-soft">
+                            <span id="detail-cat"></span>
                         </div>
                     </div>
-                    
+
                     <div class="p-6 sm:p-10">
-                        <h1 id="detail-title" class="text-3xl sm:text-4xl font-extrabold mt-3 mb-4 leading-tight tracking-tight"></h1>
-                        
-                        <!-- FECHA DE PUBLICACIÓN (IMPORTANTE) -->
-                        <div class="flex items-center text-sm text-gray-400 mb-6 border-b pb-4">
-                            <i class="fas fa-calendar-alt mr-2"></i>
-                            <span>Publicado: <span id="detail-date" class="font-semibold text-gray-500"></span></span>
+                        <!-- Título y Fecha -->
+                        <div class="flex flex-col sm:flex-row justify-between items-start border-b border-gray-100 pb-6 mb-6">
+                            <div>
+                                <h1 id="detail-title" class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight"></h1>
+                                <div class="flex items-center text-sm text-gray-400 mt-2">
+                                    <i class="fas fa-calendar-alt mr-2"></i>
+                                    <span>Publicado: <span id="detail-date" class="font-semibold text-gray-500"></span></span>
+                                </div>
+                            </div>
                         </div>
 
-                        <div id="detail-desc" class="prose prose-lg text-gray-600 mb-8 max-w-none leading-relaxed"></div>
-                        
-                        <div class="border-t pt-8">
-                            <h2 class="text-2xl font-bold mb-6 flex items-center">
-                                <i class="fas fa-box-open mr-3 text-orange-500"></i> Contenido del Pack
+                        <!-- PRODUCTOS PRIMERO (CAMBIO SOLICITADO) -->
+                        <div class="mb-8">
+                            <h2 class="text-2xl font-bold mb-6 flex items-center text-gray-800">
+                                <i class="fas fa-gift mr-3 text-orange-500"></i> Productos en este Pack
                             </h2>
-                            <div id="detail-items" class="space-y-6"></div>
+                            
+                            <!-- BOTÓN COMPRAR PACK COMPLETO -->
+                            <div class="mb-6 bg-green-50 p-4 rounded-xl border border-green-200 text-center">
+                                <button id="buy-all-btn" onclick="buyWholePack()" class="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-lg">
+                                    <i class="fas fa-cart-plus mr-2"></i> Comprar Pack Completo en Amazon
+                                </button>
+                                <p class="text-xs text-gray-500 mt-2">Intentaremos añadir todos los productos a tu carrito de Amazon.</p>
+                            </div>
+
+                            <div id="detail-items" class="space-y-4"></div>
                         </div>
 
-                        <div class="mt-10 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 flex flex-col sm:flex-row justify-between items-center shadow-inner">
-                            <span class="text-lg font-medium text-green-800 mb-2 sm:mb-0">Total Estimado del Pack:</span>
-                            <span id="detail-total" class="text-4xl font-extrabold text-green-600"></span>
+                        <!-- DESCRIPCIÓN DESPUÉS -->
+                        <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-orange-300">
+                            <h3 class="font-bold text-gray-700 mb-2 flex items-center"><i class="fas fa-info-circle mr-2 text-orange-400"></i> Sobre este Pack</h3>
+                            <div id="detail-desc" class="text-gray-600 leading-relaxed"></div>
+                        </div>
+
+                        <!-- Total -->
+                        <div class="mt-8 bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-xl p-6 flex justify-between items-center shadow-sm">
+                            <span class="text-lg font-medium text-gray-700">Total Estimado:</span>
+                            <span id="detail-total" class="text-3xl font-extrabold text-orange-600"></span>
                         </div>
                     </div>
                 </article>
@@ -198,6 +238,7 @@
         let data = { categories: [], packs: [], store: [] };
         let currentView = 'home';
         let currentCategory = 'Todos';
+        let currentPackData = null; // Para guardar el pack actual y usarlo en "buyWholePack"
 
         // --- Carga de Datos ---
         async function loadData() {
@@ -210,18 +251,16 @@
             } catch (error) {
                 console.error(error);
                 document.getElementById('packs-container').innerHTML = `
-                    <div class="text-center py-10 bg-red-50 rounded-lg text-red-600 animate-pulse">
+                    <div class="text-center py-10 bg-red-50 rounded-lg text-red-600">
                         <i class="fas fa-exclamation-triangle text-2xl mb-2"></i>
-                        <p>No se pudo cargar <b>data.json</b>.</p>
+                        <p>Error al cargar datos.</p>
                     </div>`;
             }
         }
 
         // --- Navegación ---
         function navigateTo(view, id = null) {
-            // Ocultar todo con transición
             document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
-            
             currentView = view;
             window.scrollTo(0, 0);
 
@@ -234,42 +273,40 @@
             } else if (view === 'detail' && id) {
                 document.getElementById('view-detail').classList.remove('hidden');
                 renderDetail(id);
-                // DISPARAR NOTIFICACIÓN AL ENTRAR A UN PACK
                 showToastNotification();
             }
         }
 
-        // --- Notificación Toast ---
-        function showToastNotification() {
-            const toast = document.getElementById('toast-notification');
-            toast.classList.remove('translate-x-full'); // Aparece
-            toast.classList.add('translate-x-0');
-            
-            // Ocultar después de 5 segundos
-            setTimeout(() => {
-                toast.classList.add('translate-x-full');
-                toast.classList.remove('translate-x-0');
-            }, 5000);
+        // --- Utilidades Amazon ---
+        // Función para extraer ASIN de una URL de Amazon
+        function getAsin(url) {
+            if (!url) return null;
+            // Patrones comunes: /dp/ASIN, /gp/product/ASIN, /exec/obidos/ASIN
+            const regex = /(?:\/dp\/|\/gp\/product\/|\/exec\/obidos\/ASIN\/|\/o\/ASIN\/|\/ASIN\/)([A-Z0-9]{10})/i;
+            const match = url.match(regex);
+            return match ? match[1] : null;
         }
 
-        // --- Categorías ---
+        function showToastNotification() {
+            const toast = document.getElementById('toast-notification');
+            toast.classList.remove('translate-x-full');
+            setTimeout(() => { toast.classList.add('translate-x-full'); }, 5000);
+        }
+
+        // --- Renderizado ---
         function renderCategories() {
             const list = document.getElementById('category-list');
             list.innerHTML = `
                 <li>
-                    <button onclick="filter('Todos')" class="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center group ${currentCategory === 'Todos' ? 'bg-orange-500 text-white shadow-lg scale-105' : 'text-gray-600 hover:bg-gray-100'}">
-                        <i class="fas fa-th-large mr-3 ${currentCategory === 'Todos' ? 'text-white' : 'text-gray-400 group-hover:text-orange-500'}"></i> 
-                        <span class="font-medium">Todos</span>
+                    <button onclick="filter('Todos')" class="w-full text-left px-4 py-3 rounded-lg transition-all flex items-center ${currentCategory === 'Todos' ? 'bg-orange-500 text-white shadow-lg' : 'hover:bg-gray-100 text-gray-600'}">
+                        <i class="fas fa-th-large mr-3"></i> Todos
                     </button>
                 </li>`;
-            
             data.categories.forEach(cat => {
-                const isActive = currentCategory === cat;
                 list.innerHTML += `
                     <li>
-                        <button onclick="filter('${cat}')" class="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center group ${isActive ? 'bg-orange-500 text-white shadow-lg scale-105' : 'text-gray-600 hover:bg-gray-100'}">
-                            <i class="fas fa-tag mr-3 ${isActive ? 'text-white' : 'text-gray-400 group-hover:text-orange-500'}"></i>
-                            <span class="font-medium truncate">${cat}</span>
+                        <button onclick="filter('${cat}')" class="w-full text-left px-4 py-3 rounded-lg transition-all flex items-center ${currentCategory === cat ? 'bg-orange-500 text-white shadow-lg' : 'hover:bg-gray-100 text-gray-600'}">
+                            <i class="fas fa-tag mr-3"></i> ${cat}
                         </button>
                     </li>`;
             });
@@ -287,66 +324,53 @@
             else if (currentView === 'store') renderStore();
         }
 
-        // --- Renderizado de PACKS ---
+        // --- Packs Blog ---
         function renderPacks() {
             const container = document.getElementById('packs-container');
             let items = data.packs;
             if (currentCategory !== 'Todos') items = items.filter(p => p.category === currentCategory);
+            if (items.length === 0) { container.innerHTML = '<p class="text-center text-gray-400 py-10">No hay packs.</p>'; return; }
 
-            if (items.length === 0) {
-                container.innerHTML = `<div class="text-center py-10 text-gray-400 bg-white rounded-xl shadow-sm">No hay packs.</div>`;
-                return;
-            }
-
-            container.innerHTML = items.map((p, index) => `
-                <article style="animation-delay: ${index * 100}ms" 
-                         class="bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer flex flex-col sm:flex-row group animate-fade-in-up hover:shadow-2xl transition-all duration-500 border border-transparent hover:border-orange-200" 
-                         onclick="navigateTo('detail', '${p.id}')">
-                    <div class="sm:w-1/3 flex-shrink-0 overflow-hidden relative">
-                        <img src="${p.image || 'https://via.placeholder.com/400'}" alt="${p.title}" class="w-full h-48 sm:h-full object-cover img-zoom">
-                        <div class="absolute top-0 left-0 w-full h-full bg-black/20 group-hover:bg-black/0 transition-all duration-300"></div>
-                    </div>
-                    <div class="p-6 flex flex-col justify-center flex-grow relative">
-                        <span class="inline-block w-fit bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">${p.category}</span>
-                        <h2 class="text-xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors duration-300">${p.title}</h2>
-                        <p class="text-gray-400 text-sm mb-4 line-clamp-2 mt-1">${p.description || ''}</p>
-                        
-                        <!-- FECHA EN LA CARD -->
-                        <div class="flex items-center justify-between mt-auto text-xs text-gray-400">
-                            <span><i class="fas fa-clock mr-1"></i> ${p.date || 'Sin fecha'}</span>
-                            <span class="bg-orange-100 text-orange-500 px-2 py-1 rounded-full font-bold">${p.items.length} Items</span>
+            container.innerHTML = items.map((p, i) => `
+                <article style="animation-delay: ${i*100}ms" class="bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer group animate-item hover:shadow-2xl transition-all border border-transparent hover:border-orange-200" onclick="navigateTo('detail', '${p.id}')">
+                    <div class="sm:flex">
+                        <div class="sm:w-1/3 overflow-hidden relative">
+                            <img src="${p.image}" class="w-full h-48 sm:h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://via.placeholder.com/400'">
+                        </div>
+                        <div class="p-6 flex flex-col justify-center flex-grow">
+                            <span class="text-xs font-bold text-orange-500 uppercase">${p.category}</span>
+                            <h2 class="text-xl font-bold text-gray-800 mt-1 group-hover:text-orange-600 transition-colors">${p.title}</h2>
+                            <p class="text-gray-400 text-sm mt-2 line-clamp-2">${p.description}</p>
+                            <div class="flex items-center justify-between mt-4 text-xs text-gray-400">
+                                <span><i class="fas fa-clock mr-1"></i> ${p.date || 'Sin fecha'}</span>
+                                <span class="bg-gray-100 px-2 py-1 rounded-full text-orange-500 font-bold">${p.items.length} Items</span>
+                            </div>
                         </div>
                     </div>
                 </article>
             `).join('');
         }
 
-        // --- Renderizado de TIENDA ---
+        // --- Tienda Grid ---
         function renderStore() {
             const container = document.getElementById('store-container');
             let items = data.store;
             if (currentCategory !== 'Todos') items = items.filter(p => p.category === currentCategory);
+            if (items.length === 0) { container.innerHTML = '<p class="col-span-full text-center text-gray-400 py-10">No hay productos.</p>'; return; }
 
-            if (items.length === 0) {
-                container.innerHTML = `<div class="col-span-full text-center py-10 text-gray-400">No hay productos.</div>`;
-                return;
-            }
-
-            container.innerHTML = items.map((p, index) => `
-                <div style="animation-delay: ${index * 50}ms" 
-                     class="bg-white rounded-2xl shadow-md overflow-hidden card-hover flex flex-col group animate-fade-in-up border border-transparent hover:border-orange-300">
-                    <div class="relative overflow-hidden h-48">
-                        <img src="${p.image || 'https://via.placeholder.com/300'}" alt="${p.title}" class="w-full h-full object-cover img-zoom">
-                        <div class="absolute top-2 right-2 bg-white/90 backdrop-blur px-2 py-1 rounded-full shadow text-xs font-bold text-gray-700">${p.category}</div>
+            container.innerHTML = items.map((p, i) => `
+                <div style="animation-delay: ${i*50}ms" class="bg-white rounded-xl shadow-sm overflow-hidden card-hover animate-item flex flex-col border border-gray-100 group">
+                    <div class="relative overflow-hidden h-48 bg-gray-50">
+                        <img src="${p.image}" class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 p-4">
+                        <span class="absolute top-2 left-2 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">${p.category}</span>
                     </div>
-                    <div class="p-5 flex-grow flex flex-col">
-                        <h3 class="font-bold text-gray-800 mb-2 flex-grow group-hover:text-orange-600 transition-colors">${p.title}</h3>
-                        <div class="flex justify-between items-center mt-auto pt-3 border-t border-dashed">
-                            <span class="text-xl font-extrabold text-gray-900">${p.price ? '$'+p.price : 'Ver Oferta'}</span>
-                            <a href="${p.link}" target="_blank" rel="noopener noreferrer" 
-                               onclick="event.stopPropagation(); showToastNotification();" 
-                               class="bg-orange-500 text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-orange-600 shadow-lg hover:shadow-orange-300 transition-all duration-300 transform hover:scale-110">
-                                Comprar <i class="fas fa-external-link-alt ml-1"></i>
+                    <div class="p-4 flex-grow flex flex-col border-t">
+                        <h3 class="font-bold text-gray-800 mb-2 flex-grow">${p.title}</h3>
+                        <div class="flex justify-between items-center mt-auto">
+                            <span class="text-xl font-extrabold text-gray-900">${p.price ? '$'+p.price : 'Ver Precio'}</span>
+                            <a href="${p.link}" target="_blank" onclick="event.stopPropagation(); showToastNotification();" 
+                               class="bg-orange-500 text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-orange-600 shadow-sm hover:shadow-md transition-all transform hover:scale-105">
+                                Comprar
                             </a>
                         </div>
                     </div>
@@ -354,44 +378,44 @@
             `).join('');
         }
 
-        // --- Renderizado de DETALLE ---
+        // --- Detalle del Pack (Con lógica de compra) ---
         function renderDetail(id) {
             const pack = data.packs.find(p => p.id === id);
             if (!pack) return;
+            currentPackData = pack; // Guardamos referencia
 
-            document.title = pack.title + " | PackStoreBlog";
+            document.title = pack.title;
             document.getElementById('detail-img').src = pack.image;
             document.getElementById('detail-cat').innerText = pack.category;
             document.getElementById('detail-title').innerText = pack.title;
             document.getElementById('detail-desc').innerText = pack.description;
-            
-            // Insertar fecha
             document.getElementById('detail-date').innerText = pack.date || "Fecha no disponible";
 
             const itemsContainer = document.getElementById('detail-items');
             let total = 0;
 
-            itemsContainer.innerHTML = pack.items.map((item, index) => {
+            itemsContainer.innerHTML = pack.items.map((item, i) => {
                 const priceNum = parseFloat(item.price);
                 const hasPrice = item.price && !isNaN(priceNum);
                 if (hasPrice) total += priceNum;
 
                 const priceHtml = hasPrice 
-                    ? `<span class="font-bold text-lg text-gray-800">$${priceNum.toFixed(2)}</span>`
-                    : `<span class="text-orange-500 font-bold text-sm animate-pulse">Ver Precio en Amazon</span>`;
+                    ? `<span class="text-2xl font-extrabold text-gray-800">$${priceNum.toFixed(2)}</span>`
+                    : `<span class="text-orange-500 font-bold animate-pulse">Ver Precio en Amazon</span>`;
 
                 return `
-                <div class="flex flex-col sm:flex-row gap-4 bg-gray-50 p-4 rounded-xl hover:bg-gray-100 transition-colors border border-gray-100 hover:border-orange-200 group animate-fade-in-up" style="animation-delay: ${index * 100}ms">
-                    <div class="flex-shrink-0 overflow-hidden rounded-lg">
-                        <img src="${item.image || 'https://via.placeholder.com/100'}" alt="${item.name}" class="w-24 h-24 object-cover group-hover:scale-110 transition-transform duration-300">
+                <div style="animation-delay: ${i*100}ms" class="flex flex-col sm:flex-row gap-4 bg-white p-4 rounded-xl border border-gray-200 hover:border-orange-400 transition-all animate-item shadow-sm hover:shadow-md group">
+                    <div class="flex-shrink-0 w-full sm:w-24 h-24 overflow-hidden rounded-lg bg-gray-100 flex items-center justify-center">
+                        <img src="${item.image}" alt="${item.name}" class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform">
                     </div>
                     <div class="flex-grow flex flex-col justify-center">
                         <h4 class="text-lg font-bold text-gray-800">${item.name}</h4>
-                        <p class="text-gray-400 text-sm mt-1 mb-2">${item.description || ''}</p>
-                        <div class="flex justify-between items-center">
+                        <p class="text-gray-400 text-sm mb-2">${item.description || ''}</p>
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mt-2">
                             <div>${priceHtml}</div>
-                            <a href="${item.link}" target="_blank" class="text-blue-500 hover:text-blue-600 text-sm font-medium transition-colors transform hover:translate-x-1">
-                                Ver Producto <i class="fas fa-link ml-1"></i>
+                            <a href="${item.link}" target="_blank" rel="noopener" 
+                               class="bg-white border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-4 py-1 rounded-full text-sm font-bold transition-all text-center w-full sm:w-auto">
+                                Comprar Separado
                             </a>
                         </div>
                     </div>
@@ -401,40 +425,67 @@
             document.getElementById('detail-total').innerText = `$${total.toFixed(2)}`;
         }
 
-        // --- Sidebar Toggle ---
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
-        const menuBtn = document.getElementById('menu-btn');
+        // Función para comprar todo el pack
+        function buyWholePack() {
+            if (!currentPackData) return;
 
-        function toggleSidebar() {
-            const isOpen = !sidebar.classList.contains('-translate-x-full');
-            if (isOpen) {
-                sidebar.classList.add('-translate-x-full');
-                overlay.classList.add('hidden');
+            // 1. Construir URL de carrito de Amazon
+            // Nota: Usamos el dominio genérico .com, Amazon redirige al local del usuario.
+            // Estructura: https://www.amazon.com/gp/aws/cart/add.html?AssociateTag=YOUR_TAG&ASIN.1=XXXXX&Quantity.1=1...
+            // NOTA IMPORTANTE: Esto solo funciona si los enlaces en el JSON son de Amazon y tienen ASINs válidos.
+            
+            let baseUrl = "https://www.amazon.com/gp/aws/cart/add.html?";
+            let params = [];
+            let count = 1;
+
+            currentPackData.items.forEach(item => {
+                const asin = getAsin(item.link);
+                if (asin) {
+                    params.push(`ASIN.${count}=${asin}`);
+                    params.push(`Quantity.${count}=1`);
+                    count++;
+                }
+            });
+
+            if (params.length > 0) {
+                // Si tienes un ID de afiliado, agrégalo aquí. Si no, se omite (pero ganas menos comisión).
+                // params.push("AssociateTag=TuIDDeAfiliado");
+                
+                const fullUrl = baseUrl + params.join("&");
+                window.open(fullUrl, '_blank');
+                
+                // Feedback visual
+                const btn = document.getElementById('buy-all-btn');
+                btn.innerHTML = '<i class="fas fa-check mr-2"></i> Redirigiendo a Amazon...';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-cart-plus mr-2"></i> Comprar Pack Completo en Amazon'; }, 2000);
             } else {
-                sidebar.classList.remove('-translate-x-full');
-                overlay.classList.remove('hidden');
+                alert("No se detectaron productos válidos de Amazon (ASIN no encontrado) en este pack para añadir al carrito automáticamente.");
             }
         }
-        menuBtn.addEventListener('click', toggleSidebar);
+
+        // --- Sidebar Toggle ---
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+        document.getElementById('menu-btn').addEventListener('click', toggleSidebar);
 
         // --- Búsqueda ---
         document.getElementById('search-main').addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase();
             if (!term) { renderView(); return; }
             
-            const filteredPacks = data.packs.filter(p => p.title.toLowerCase().includes(term) || p.description.toLowerCase().includes(term));
-            const filteredStore = data.store.filter(p => p.title.toLowerCase().includes(term));
-
+            const filteredPacks = data.packs.filter(p => p.title.toLowerCase().includes(term));
             document.getElementById('packs-container').innerHTML = filteredPacks.map(p => `
-                <article class="bg-white rounded-xl shadow-sm p-4 cursor-pointer hover:bg-gray-50 transition-colors" onclick="navigateTo('detail', '${p.id}')">
-                    <h2 class="font-bold text-lg text-gray-800">${p.title}</h2>
-                    <p class="text-sm text-gray-500">${p.category}</p>
+                <article class="bg-white p-4 rounded shadow cursor-pointer hover:bg-gray-50" onclick="navigateTo('detail', '${p.id}')">
+                    <h2 class="font-bold">${p.title}</h2>
                 </article>
             `).join('') || '<p class="text-center py-10 text-gray-400">Sin resultados</p>';
         });
 
-        // Inicio
+        // Init
         loadData();
     </script>
 </body>
