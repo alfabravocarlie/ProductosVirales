@@ -7,6 +7,23 @@
     ],
     "packs": [
         {
+            "id": "pack-1772587390693",
+            "title": "Apple AirTag (2da generaci\u00f3n)",
+            "description": "Rastreador para llavero, cartera y m\u00e1s; localizador con sonido; configuraci\u00f3n simple de un solo toque con iPhone o iPad; buscador de llaves con rango de b\u00fasqueda",
+            "image": "Imagenes\/Producto1.jpg",
+            "category": "Tecnolog\u00eda",
+            "date": "2026-03-04",
+            "items": [
+                {
+                    "name": "Apple AirTag (2da generaci\u00f3n)",
+                    "price": "29.99",
+                    "link": "https:\/\/amzn.to\/46AM3Rj",
+                    "image": "https:\/\/m.media-amazon.com\/images\/I\/61Qd9Z9caRL._AC_SX342_SY445_QL70_FMwebp_.jpg",
+                    "description": "Rastreador para llavero, cartera y m\u00e1s; localizador con sonido; configuraci\u00f3n simple de un solo toque con iPhone o iPad; buscador de llaves con rango de b\u00fasqueda"
+                }
+            ]
+        },
+        {
             "id": "pack-1772499413731",
             "title": "Wellness & Productividad en Casa 2026",
             "description": "Si marzo te est\u00e1 pidiendo un reinicio mental, f\u00edsico y creativo, este combo es tu nueva base de poder. Reun\u00ed cuatro superventas reales \u2014gadgets que est\u00e1n arrasando en Amazon\u2014 para ayudarte a hidratarte mejor, concentrarte m\u00e1s, moverte todos los d\u00edas y organizar tu mente desde casa sin complicarte la vida. Todo dentro de un rango accesible de 195\u2013240 USD, con ofertas que cambian cada semana.\n\n\ud83d\udca7 1. Owala FreeSip (32 oz): hidrataci\u00f3n que s\u00ed provoca\nLa botella insulated #1 del momento. Mantiene tu agua fr\u00eda por horas, tiene doble forma de beber (sorbo o pajita) y te acompa\u00f1a desde la ma\u00f1ana hasta el \u00faltimo pendiente del d\u00eda. Ideal para quienes quieren convertir la hidrataci\u00f3n en un h\u00e1bito real y no en un prop\u00f3sito olvidado.\n\n\ud83c\udfa7 2. Apple AirPods 4: foco mental instant\u00e1neo\nCancelaci\u00f3n de ruido mejorada, audio espacial y comodidad total. Perfectos para llamadas, sesiones de trabajo profundo, podcasts motivadores o m\u00fasica para entrenar. Son ese \u201cmodo zen\u201d que activas en segundos cuando el caos exterior quiere robarte la concentraci\u00f3n.\n\n\ud83e\uddd8 3. Amazon Basics Extra Thick Yoga Mat: movimiento c\u00f3modo y diario\nUn mat grueso, estable y bestseller. Funciona para yoga, estiramientos, pilates o cualquier rutina de piso. Su acolchado hace que moverte en casa sea m\u00e1s amable, m\u00e1s constante y m\u00e1s sostenible a largo plazo.\n\n\ud83d\udcfa 4. Fire TV Stick 4K Select: tu gu\u00eda wellness en pantalla\nConvierte tu TV en un hub inteligente para rutinas de meditaci\u00f3n, yoga, fitness, playlists energ\u00e9ticas y control por voz. Es el puente perfecto entre tus h\u00e1bitos y la motivaci\u00f3n visual que necesitas para mantenerlos.\n\n\u2728 \u00bfPor qu\u00e9 este combo funciona tan bien?\nPorque cubre los cuatro pilares que m\u00e1s impactan tu bienestar diario cuando trabajas o estudias desde casa:\n\nHidrataci\u00f3n para energ\u00eda sostenida.\n\nAudio inmersivo para foco real.\n\nMovimiento diario para liberar tensi\u00f3n.\n\nGu\u00eda visual para mantener constancia sin pensar demasiado.\n\nTodo con productos que ya son tendencia, tienen alta rotaci\u00f3n post-resoluciones y encajan perfecto en una rutina moderna, pr\u00e1ctica y sin complicaciones.",
@@ -101,6 +118,14 @@
         }
     ],
     "store": [
+        {
+            "id": "store-1772587454293",
+            "title": "Apple AirTag",
+            "price": "29.00",
+            "link": "Imagenes\/Producto1",
+            "image": "https:\/\/m.media-amazon.com\/images\/I\/61Qd9Z9caRL._AC_SX679_.jpg",
+            "category": "Amazon Packs"
+        },
         {
             "id": "store-1772505487084",
             "title": "Curso de resina Epoxi",
